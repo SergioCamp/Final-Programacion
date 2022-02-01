@@ -85,7 +85,7 @@ starwars %>%
 #Add row (agregar una fila)
 
 starwars %>% 
-  add_row(name="Camilo", mass=52, species="gei", height=60, .before=5)
+  add_row(name="Sergio", mass=52, height=60, .before=5)
 
 #Mutate (Agregar o transformar nuevas columnas)
 
