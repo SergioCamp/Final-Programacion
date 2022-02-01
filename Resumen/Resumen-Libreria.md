@@ -349,12 +349,8 @@ starwars %>% relocate(sex, height, .before=mass)
 
 ``` r
 #Arrange (Ordenar columnas)
-"Los N.a. siempre van al final"
-```
+#Los N.a. siempre van al final"
 
-    ## [1] "Los N.a. siempre van al final"
-
-``` r
 starwars %>% 
   arrange(height)
 ```
@@ -532,12 +528,7 @@ starwars %>% distinct(sex, mass)
 
 ``` r
 #Slice (Selecciona las filas por posicion)
-"3 primeras filas"
-```
-
-    ## [1] "3 primeras filas"
-
-``` r
+#3 primeras filas
 starwars %>% slice(1:3)
 ```
 
@@ -551,12 +542,7 @@ starwars %>% slice(1:3)
     ## #   vehicles <list>, starships <list>
 
 ``` r
-"Sin las 3 primeras filas"
-```
-
-    ## [1] "Sin las 3 primeras filas"
-
-``` r
+#Sin las 3 primeras filas
 starwars %>% slice(-(1:3))
 ```
 
@@ -577,12 +563,7 @@ starwars %>% slice(-(1:3))
     ## #   films <list>, vehicles <list>, starships <list>
 
 ``` r
-"La primera fila"
-```
-
-    ## [1] "La primera fila"
-
-``` r
+#La primera fila
 starwars %>% slice_head()
 ```
 
@@ -594,12 +575,7 @@ starwars %>% slice_head()
     ## #   vehicles <list>, starships <list>
 
 ``` r
-"La ultima fila"
-```
-
-    ## [1] "La ultima fila"
-
-``` r
+#La ultima fila
 starwars %>% slice_tail()
 ```
 
@@ -611,12 +587,7 @@ starwars %>% slice_tail()
     ## #   vehicles <list>, starships <list>
 
 ``` r
-"La fila con el valor minimo"
-```
-
-    ## [1] "La fila con el valor minimo"
-
-``` r
+#La fila con el valor minimo
 starwars %>% slice_min(height)
 ```
 
@@ -628,12 +599,7 @@ starwars %>% slice_min(height)
     ## #   vehicles <list>, starships <list>
 
 ``` r
-"La fila con el valor maximo"
-```
-
-    ## [1] "La fila con el valor maximo"
-
-``` r
+#La fila con el valor maximo
 starwars %>% slice_max(height)
 ```
 
@@ -645,19 +611,14 @@ starwars %>% slice_max(height)
     ## #   vehicles <list>, starships <list>
 
 ``` r
-"Fila o filas al azar"
-```
-
-    ## [1] "Fila o filas al azar"
-
-``` r
+#Fila o filas al azar
 starwars %>% slice_sample()
 ```
 
     ## # A tibble: 1 x 14
-    ##   name     height  mass hair_color  skin_color eye_color birth_year sex   gender
-    ##   <chr>     <int> <dbl> <chr>       <chr>      <chr>          <dbl> <chr> <chr> 
-    ## 1 Obi-Wan~    182    77 auburn, wh~ fair       blue-gray         57 male  mascu~
+    ##   name     height  mass hair_color skin_color eye_color birth_year sex   gender 
+    ##   <chr>     <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr>  
+    ## 1 Dud Bolt     94    45 none       blue, grey yellow            NA male  mascul~
     ## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
     ## #   vehicles <list>, starships <list>
 
@@ -666,12 +627,12 @@ starwars %>% slice_sample(n=4)
 ```
 
     ## # A tibble: 4 x 14
-    ##   name     height  mass hair_color skin_color eye_color birth_year sex   gender 
-    ##   <chr>     <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr>  
-    ## 1 C-3PO       167  75   <NA>       gold       yellow         112   none  mascul~
-    ## 2 Boba Fe~    183  78.2 black      fair       brown           31.5 male  mascul~
-    ## 3 Yarael ~    264  NA   none       white      yellow          NA   male  mascul~
-    ## 4 Sebulba     112  40   none       grey, red  orange          NA   male  mascul~
+    ##   name      height  mass hair_color skin_color eye_color birth_year sex   gender
+    ##   <chr>      <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+    ## 1 Tarfful      234   136 brown      brown      blue              NA male  mascu~
+    ## 2 Poggle t~    183    80 none       green      yellow            NA male  mascu~
+    ## 3 Ratts Ty~     79    15 none       grey, blue unknown           NA male  mascu~
+    ## 4 Jar Jar ~    196    66 none       orange     orange            52 male  mascu~
     ## # ... with 5 more variables: homeworld <chr>, species <chr>, films <list>,
     ## #   vehicles <list>, starships <list>
 
@@ -764,12 +725,7 @@ starwars %>% summarise(first(name), min(height), max(mass))
     ## 1 Luke Skywalker            NA          NA
 
 ``` r
-"Usar el na.rm = TRUE para evitar que los datos se combinen con los n.a."
-```
-
-    ## [1] "Usar el na.rm = TRUE para evitar que los datos se combinen con los n.a."
-
-``` r
+#Usar el na.rm = TRUE para evitar que los datos se combinen con los n.a.#
 starwars %>% summarise(first(name), min(height, na.rm = TRUE), max(mass, na.rm = TRUE))
 ```
 
@@ -779,12 +735,7 @@ starwars %>% summarise(first(name), min(height, na.rm = TRUE), max(mass, na.rm =
     ## 1 Luke Skywalker                          66                      1358
 
 ``` r
-"Le agregamos nombre a las columnas"
-```
-
-    ## [1] "Le agregamos nombre a las columnas"
-
-``` r
+#Le agregamos nombre a las columnas
 starwars %>% summarise(Nombre=first(name), peso_min=min(height, na.rm = TRUE), mass_max=max(mass, na.rm = TRUE))
 ```
 
@@ -817,12 +768,7 @@ starwars %>% group_by(sex)
     ## #   films <list>, vehicles <list>, starships <list>
 
 ``` r
-"Group_by y summarise funcionan en conjunto casi siempre, esto debido a que hace resumenes mas completos y especficos"
-```
-
-    ## [1] "Group_by y summarise funcionan en conjunto casi siempre, esto debido a que hace resumenes mas completos y especficos"
-
-``` r
+#Group_by y summarise funcionan en conjunto casi siempre, esto debido a que hace resumenes mas completos y especficos
 starwars %>% group_by(sex) %>% summarise(Media.peso = mean(height, na.rm = TRUE), Suma.mass = sum(mass, na.rm = TRUE), Cantidad = n())
 ```
 
@@ -847,12 +793,7 @@ starwars %>% summarise(n_distinct(name), n_distinct(height), n_distinct(mass), n
 
 ``` r
 #Across (especifica las columnas sobre las que deseas que actúe la función)
-"contar el numero de valores en name, height y mass"
-```
-
-    ## [1] "contar el numero de valores en name, height y mass"
-
-``` r
+#contar el numero de valores en name, height y mass
 starwars %>% summarise(across(c(name,height,mass,sex), n_distinct))
 ```
 
@@ -862,12 +803,7 @@ starwars %>% summarise(across(c(name,height,mass,sex), n_distinct))
     ## 1    87     46    39     5
 
 ``` r
-"contar el numero de valores de todos los vectores"
-```
-
-    ## [1] "contar el numero de valores de todos los vectores"
-
-``` r
+#contar el numero de valores de todos los vectores
 starwars %>% summarise(across(everything(), n_distinct))
 ```
 
@@ -879,12 +815,7 @@ starwars %>% summarise(across(everything(), n_distinct))
     ## #   vehicles <int>, starships <int>
 
 ``` r
-"contar el numero de valores de los vectores empiezen con eye"
-```
-
-    ## [1] "contar el numero de valores de los vectores empiezen con eye"
-
-``` r
+#contar el numero de valores de los vectores empiezen con eye
 starwars %>% summarise(across(starts_with("eye"), n_distinct))
 ```
 
@@ -894,12 +825,7 @@ starwars %>% summarise(across(starts_with("eye"), n_distinct))
     ## 1        15
 
 ``` r
-"contar el numero de valores de los vectores que contengan la palabra color"
-```
-
-    ## [1] "contar el numero de valores de los vectores que contengan la palabra color"
-
-``` r
+#contar el numero de valores de los vectores que contengan la palabra color
 starwars %>% summarise(across(contains("color"), n_distinct))
 ```
 
@@ -909,12 +835,7 @@ starwars %>% summarise(across(contains("color"), n_distinct))
     ## 1         13         31        15
 
 ``` r
-"contar el maximo valor en height y mass"
-```
-
-    ## [1] "contar el maximo valor en height y mass"
-
-``` r
+#contar el maximo valor en height y mass"
 starwars %>% summarise(across(c(height,mass), max, na.rm = TRUE))
 ```
 
@@ -946,12 +867,7 @@ starwars %>% rownames_to_column(var="orden")
 
 ``` r
 #Combinacion de tablas:
-"Para el ejemplo creare 2 tablas nuevas"
-```
-
-    ## [1] "Para el ejemplo creare 2 tablas nuevas"
-
-``` r
+#Para el ejemplo creare 2 tablas nuevas
 Uno <- starwars %>% slice(1:3)
 Uno
 ```
@@ -980,12 +896,7 @@ Dos
     ## #   vehicles <list>, starships <list>
 
 ``` r
-"Combinar columnas"
-```
-
-    ## [1] "Combinar columnas"
-
-``` r
+#Combinar columnas
 bind_cols(Uno,Dos)
 ```
 
@@ -1012,17 +923,10 @@ bind_cols(Uno,Dos)
     ## #   species...25 <chr>, films...26 <list>, vehicles...27 <list>, ...
 
 ``` r
-"Combinar filas"
-```
-
-    ## [1] "Combinar filas"
-
-``` r
+#Combinar filas
 ow=bind_rows(Uno,Dos)
 
-"Para que se puedan fusionar las tablas:
-en bind_cols tienen que tener la misma cantidad de filas
-en bind_rows tienen que tener la misma cantidad de columnas"
+#Para que se puedan fusionar las tablas:
+#en bind_cols tienen que tener la misma cantidad de filas
+#en bind_rows tienen que tener la misma cantidad de columnas
 ```
-
-    ## [1] "Para que se puedan fusionar las tablas:\nen bind_cols tienen que tener la misma cantidad de filas\nen bind_rows tienen que tener la misma cantidad de columnas"

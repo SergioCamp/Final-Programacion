@@ -74,7 +74,7 @@ starwars %>% relocate(height, .before=mass)
 starwars %>% relocate(sex, height, .before=mass)
 
 #Arrange (Ordenar columnas)
-"Los N.a. siempre van al final"
+#Los N.a. siempre van al final"
 
 starwars %>% 
   arrange(height)
@@ -108,25 +108,25 @@ starwars %>% distinct(sex)
 starwars %>% distinct(sex, mass)
 
 #Slice (Selecciona las filas por posicion)
-"3 primeras filas"
+#3 primeras filas
 starwars %>% slice(1:3)
 
-"Sin las 3 primeras filas"
+#Sin las 3 primeras filas
 starwars %>% slice(-(1:3))
 
-"La primera fila"
+#La primera fila
 starwars %>% slice_head()
 
-"La ultima fila"
+#La ultima fila
 starwars %>% slice_tail()
 
-"La fila con el valor minimo"
+#La fila con el valor minimo
 starwars %>% slice_min(height)
 
-"La fila con el valor maximo"
+#La fila con el valor maximo
 starwars %>% slice_max(height)
 
-"Fila o filas al azar"
+#Fila o filas al azar
 starwars %>% slice_sample()
 starwars %>% slice_sample(n=4)
 
@@ -138,55 +138,55 @@ starwars %>% pull(sex, mass)
 
 starwars %>% summarise(first(name), min(height), max(mass))
 
-"Usar el na.rm = TRUE para evitar que los datos se combinen con los n.a."
+#Usar el na.rm = TRUE para evitar que los datos se combinen con los n.a.#
 starwars %>% summarise(first(name), min(height, na.rm = TRUE), max(mass, na.rm = TRUE))
 
-"Le agregamos nombre a las columnas"
+#Le agregamos nombre a las columnas
 starwars %>% summarise(Nombre=first(name), peso_min=min(height, na.rm = TRUE), mass_max=max(mass, na.rm = TRUE))
 
 #Group_by (Solo te da el dato de cuantos grupos existen por la variable elegida)
 
 starwars %>% group_by(sex)
 
-"Group_by y summarise funcionan en conjunto casi siempre, esto debido a que hace resumenes mas completos y especficos"
+#Group_by y summarise funcionan en conjunto casi siempre, esto debido a que hace resumenes mas completos y especficos
 starwars %>% group_by(sex) %>% summarise(Media.peso = mean(height, na.rm = TRUE), Suma.mass = sum(mass, na.rm = TRUE), Cantidad = n())
 
 #n_distinct dentro de summarise (Cuenta el numero de valores en un vector)
 starwars %>% summarise(n_distinct(name), n_distinct(height), n_distinct(mass), n_distinct(sex))
 
 #Across (especifica las columnas sobre las que deseas que actúe la función)
-"contar el numero de valores en name, height y mass"
+#contar el numero de valores en name, height y mass
 starwars %>% summarise(across(c(name,height,mass,sex), n_distinct))
 
-"contar el numero de valores de todos los vectores"
+#contar el numero de valores de todos los vectores
 starwars %>% summarise(across(everything(), n_distinct))
 
-"contar el numero de valores de los vectores empiezen con eye"
+#contar el numero de valores de los vectores empiezen con eye
 starwars %>% summarise(across(starts_with("eye"), n_distinct))
 
-"contar el numero de valores de los vectores que contengan la palabra color"
+#contar el numero de valores de los vectores que contengan la palabra color
 starwars %>% summarise(across(contains("color"), n_distinct))
 
-"contar el maximo valor en height y mass"
+#contar el maximo valor en height y mass"
 starwars %>% summarise(across(c(height,mass), max, na.rm = TRUE))
 
 #Rownames_to_column (Convierte en una nueva columna el nombre de la fila)
 starwars %>% rownames_to_column(var="orden")
 
 #Combinacion de tablas:
-"Para el ejemplo creare 2 tablas nuevas"
+#Para el ejemplo creare 2 tablas nuevas
 Uno <- starwars %>% slice(1:3)
 Uno
 Dos <- starwars %>% slice(5:7)
 Dos
 
-"Combinar columnas"
+#Combinar columnas
 bind_cols(Uno,Dos)
 
-"Combinar filas"
+#Combinar filas
 ow=bind_rows(Uno,Dos)
 
-"Para que se puedan fusionar las tablas:
-en bind_cols tienen que tener la misma cantidad de filas
-en bind_rows tienen que tener la misma cantidad de columnas"
+#Para que se puedan fusionar las tablas:
+#en bind_cols tienen que tener la misma cantidad de filas
+#en bind_rows tienen que tener la misma cantidad de columnas
 ```
